@@ -1,14 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <RootNamespace>RePKG</RootNamespace>
-		<SelfContained>true</SelfContained>
-        <TargetFramework>net6.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net472</TargetFramework>
         <Version>0.2.2</Version>
-		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-		<Copyright>Copyright © NotScuffed 2020</Copyright>
-
-		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-		<PublishReadyToRun>true</PublishReadyToRun>
+        <Copyright>Copyright © NotScuffed 2020</Copyright>
     </PropertyGroup>
     
     <ItemGroup>
