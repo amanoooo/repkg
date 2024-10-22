@@ -5,7 +5,7 @@ const exec = promisify(child_process.exec);
 import fs from 'node:fs'
 import path from 'node:path';
 
-const BASE = '../../repkg/RePKG/bin/Release/net472/RePKG.exe'
+const BASE = ['dotnet', '../ConsoleApp.dll']
 
 export class RePKG {
     constructor() {
@@ -13,7 +13,8 @@ export class RePKG {
     }
     run(command) {
         console.log('command is ', command);
-        return execFile(`${BASE}`, command, { 'encoding': 'utf-8' });
+        // return execFile(`${BASE}`, command, { 'encoding': 'utf-8' });
+        return exec(BASE.concat(command).join(' '), { 'encoding': 'utf-8' });
     }
     info(command) {
         return this.run(['info'].concat(command))

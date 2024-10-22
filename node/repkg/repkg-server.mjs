@@ -8,7 +8,7 @@ import querystring from 'querystring';
 
 
 !fs.existsSync('uploads') && fs.mkdirSync('uploads')
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = 3000;
 
 const repkg = new RePKG()

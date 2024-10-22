@@ -1,0 +1,10 @@
+# node 20
+FROM amanohikaru/repkg:node
+
+WORKDIR /app/repkg
+ADD node/repkg .
+
+
+ENTRYPOINT ["/usr/bin/node"]
+
+CMD ["repkg-server.mjs"]
