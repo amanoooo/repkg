@@ -8,11 +8,33 @@
 </head>
 
 <body>
-    <form action="upload" method="post" enctype="multipart/form-data">
+    <h2>Repkg</h2>
+    Wallpaper engine PKG extractor/TEX to image converter <a href="https://github.com/amanoooo/repkg">[github]</a>
 
-        file: <input type="file" name="file"><br>
-        <input type="submit" value="提交">
-    </form>
+    <div class="wrapper">
+        <h3>Select Your *.PKG File</h3>
+        <form action="upload" method="post" enctype="multipart/form-data">
+
+            1. <input type="file" accept=".pkg" name="file" required><br>
+            2. <input type="submit" value="提交">
+        </form>
+    </div>
+    <div class="wrapper">
+        <h3>Download Example File</h3>
+        <a href="/dist/foot.pkg">foot.pkg</a>
+    </div>
+    <div class="wrapper">
+
+    </div>
+</div>
 </body>
+
+<style>
+    .wrapper {
+        border: 1px solid gray;
+        padding: 16px;
+        margin-top: 16px;
+    }
+</style>
 
 </html>

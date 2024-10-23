@@ -5,7 +5,9 @@ const exec = promisify(child_process.exec);
 import fs from 'node:fs'
 import path from 'node:path';
 
-const BASE = ['dotnet', '../ConsoleApp.dll']
+const isProd = process.env.NODE_ENV?.toUpperCase() === 'PROD'
+
+const BASE = isProd ? ['dotnet', '../ConsoleApp.dll'] : '../../RePKG/bin/Release/net472/RePKG.exe'
 
 export class RePKG {
     constructor() {
@@ -13,8 +15,8 @@ export class RePKG {
     }
     run(command) {
         console.log('command is ', command);
-        // return execFile(`${BASE}`, command, { 'encoding': 'utf-8' });
-        return exec(BASE.concat(command).join(' '), { 'encoding': 'utf-8' });
+        return isProd ? exec(BASE.concat(command).join(' '), { 'encoding': 'utf-8' })
+            : execFile(`${BASE}`, command, { 'encoding': 'utf-8' });
     }
     info(command) {
         return this.run(['info'].concat(command))

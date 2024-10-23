@@ -40,8 +40,24 @@ const handler = async (req, res) => {
 </head>
 
 <body>
+<div class='wrapper'>
+<h3>Result</h3>
     ${r.map(i => '<li><a target="_blank" href=' + i + '>' + i + '</a></li>').join('')}
+    </div>
+
+    <div class='wrapper'>
+    <h3>Buy Me a Coffee</h3>
+    <img src='/dist/alipay.png' width='200' />
+    <img src='/dist/wechatpay.png' width='200' />
+    </div>
 </body>
+<style>
+    .wrapper {
+        border: 1px solid gray;
+        padding: 16px;
+        margin-top: 16px;
+    }
+</style>
 
 </html>
             `);
