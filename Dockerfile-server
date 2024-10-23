@@ -4,6 +4,8 @@ FROM amanohikaru/repkg:node
 WORKDIR /app/repkg
 ADD node/repkg .
 
+ENV NODE_ENV=PROD
+
 
 ENTRYPOINT ["/usr/bin/node"]
 
