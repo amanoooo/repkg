@@ -22,7 +22,8 @@ export class RePKG {
         return this.run(['info'].concat(command))
     }
     extract(command, dir = 'output') {
-        return this.run(['extract', '-o', dir].concat(command))
+        // 加引号防止文件中包含空格
+        return this.run(['extract', '-o', dir].concat(`'${command}'`))
     }
     // 返回[path,...]
     async listImage(dir) {
