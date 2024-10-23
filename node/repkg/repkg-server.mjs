@@ -22,7 +22,7 @@ const handler = async (req, res) => {
     console.log('recevice[%s] ? [%s]', parsedUrl.pathname, parsedUrl.query);
 
     switch (parsedUrl.pathname) {
-        case '/': {
+        case '/v': {
             const r = await repkg.run()
             res.end(JSON.stringify(r));
             break;
@@ -42,7 +42,7 @@ const handler = async (req, res) => {
 <body>
 <div class='wrapper'>
 <h3>Result</h3>
-    ${r.map(i => '<li><a target="_blank" href=' + i + '>' + i + '</a></li>').join('')}
+    ${r.map(i => '<li><a target="_blank" href="' + encodeURIComponent(i) + '">' + i + '</a></li>').join('')}
     </div>
 
     <div class='wrapper'>
@@ -102,6 +102,7 @@ const handler = async (req, res) => {
             })
             break
         }
+        case '/':
         case '/form': {
             res.setHeader('Content-Type', 'text/html; charset=utf-8');
             const data = fs.readFileSync('repkg-form.html', { encoding: 'utf-8' })
@@ -109,8 +110,9 @@ const handler = async (req, res) => {
             break
         }
         default:
-            if (fs.existsSync(parsedUrl.pathname.slice(1))) {
-                res.end(fs.readFileSync(parsedUrl.pathname.slice(1)));
+            const tryfile = decodeURIComponent(parsedUrl.pathname.slice(1))
+            if (fs.existsSync(tryfile)) {
+                res.end(fs.readFileSync(tryfile));
             } else {
                 res.end('hello world');
             }
