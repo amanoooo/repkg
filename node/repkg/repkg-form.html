@@ -10,6 +10,8 @@
 <body>
     <h2>Repkg</h2>
     Wallpaper engine PKG extractor/TEX to image converter <a href="https://github.com/amanoooo/repkg">[github]</a>
+    <span id="count"></span>
+
 
     <div class="wrapper">
         <h3>Select Your *.PKG File</h3>
@@ -24,6 +26,9 @@
         <a href="/dist/foot.pkg">foot.pkg</a>
     </div>
     <div class="wrapper">
+        <h3>Have Any Questions?</h3>
+        <a href="mailto:1060996790@qq.com">Mailto Me</a>
+
 
     </div>
 </div>
@@ -36,5 +41,10 @@
         margin-top: 16px;
     }
 </style>
+<script>
+fetch("https://api.counterapi.dev/v1/amanoooo-repkg/home/up").then(r => r.json()).then(data => {
+    document.getElementById('count').innerHTML =  data.count
+})
+</script>
 
 </html>

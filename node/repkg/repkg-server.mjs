@@ -40,6 +40,10 @@ const handler = async (req, res) => {
 </head>
 
 <body>
+
+<h2>Repkg</h2>
+<span id="count"></span>
+
 <div class='wrapper'>
 <h3>Result</h3>
     ${r.map(i => '<li><a target="_blank" href="' + encodeURIComponent(i) + '">' + i + '</a></li>').join('')}
@@ -58,6 +62,11 @@ const handler = async (req, res) => {
         margin-top: 16px;
     }
 </style>
+<script>
+fetch("https://api.counterapi.dev/v1/amanoooo-repkg/extract/up").then(r => r.json()).then(data => {
+    document.getElementById('count').innerHTML =  data.count
+})
+</script>
 
 </html>
             `);
